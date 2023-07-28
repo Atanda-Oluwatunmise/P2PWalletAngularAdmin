@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40400%3B500&display=swap%27%29%3B');
+@import "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round";
+
+body {
+  font-family: 'Urbanist', sans-serif;
+  background: #ececec;
+}
+
+.navContainer{
+  position: relative;
+  padding: 8px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+}
+
+.headerImg{
+  width: 100px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.profilePicture{
+  width: 30px;
+  height: auto;
+}
+
+.sideHeader {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.sideHeader:last-child{
+
+  gap: 0.5rem; 
+}
+.usersName{
+  font-size: 10px;
+  font-weight: 50;
+  margin-right: 10px;
+}
+
+.sidenav {
+  background-color: #fff;
+  position: sticky;
+}
+
+.rzi {
+  font-family: "Material Icons Outlined";
+}
+
+.col-md-2 {
+  /* height: 100vh !important; */
+  position: sticky !important;
+}
+
+.nav-pills li a.active {
+  width: 100%;
+  background-color: #53277E;
+  color: #fff !important;
+  margin-left: 0;
+  padding: 3px;
+}
+
+.nav-pills li a {
+  color: #53277E !important;
+}
+
+.nav-link[data-bs-toggle] .collapsed::after {
+  content: "▾";
+  color: #53277E !important;
+}
+.nav-link[data-bs-toggle]:not(.collapsed)::after {
+  content: "▴";
+  color: #53277E !important;
+
+}
+
+#logout span {
+  color: #53277E !important;
+}
+
+#logout {
+  cursor: pointer;
+}
+
+#logout span:hover {
+  color: red !important;
+  transition: all .2s ease-in;
+}
+
+.nav-pills li a:hover {
+  background-color: #53277E;
+  color: #fff !important;
+  transition: all .2s ease-in;
+}

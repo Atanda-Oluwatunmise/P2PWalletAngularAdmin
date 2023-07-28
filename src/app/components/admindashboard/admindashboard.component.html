@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="row gutterFix">
+    <!-- colSide -->
+    <div class="colSide">
+        <app-sidenav></app-sidenav>
+    </div>
+    <!-- colMain -->
+    <div class="colMain">
+        <!-- content -->
+        <main class="main-container">
+            <div class="main-title">
+                <p class="font-weight-bold">DASHBOARD</p>
+            </div>
+
+            <div class="main-cards">
+
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="">NO OF USERS</p>
+                        <span class="material-icons-outlined text-blue">person</span>
+                    </div>
+                    <span class="font-weight-bold">249</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="">NO OF TRANSACTIONS</p>
+                        <span class="material-icons-outlined text-orange">history</span>
+                    </div>
+                    <span class="font-weight-bold">83</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="">NO OF ACCOUNTS</p>
+                        <span class="material-icons-outlined text-green">account_circle</span>
+                    </div>
+                    <span class="font-weight-bold">79</span>
+                </div>
+            </div>
+
+            <div class="charts">
+
+                <div class="charts-card">
+                    <p class="chart-title">Locked and Unlocked Users</p>
+                    <div id="bar-chart"></div>
+                </div>
+
+                <div class="charts-card">
+                    <p class="chart-title">Transactions</p>
+                    <div id="area-chart"></div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <router-outlet></router-outlet>
+</div>

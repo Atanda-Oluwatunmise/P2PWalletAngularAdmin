@@ -1,0 +1,124 @@
+<app-header></app-header>
+<div class="row gutterFix">
+    <!-- colSide -->
+    <div class="colSide">
+        <app-sidenav></app-sidenav>
+    </div>
+    <!-- colMain -->
+    <div class="colMain">
+        <!-- content -->
+        <main class="main-container">
+            <div class="row main-cards pt-2">
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <input (click)="glaccount()" class="navBtn" type="button" value="GL ACCOUNTS">
+                        <input (click)="newglaccount()" class="navBtn" type="button" value="CREATE NEW GL ACCOUNT">
+                        <input (click)="updateContainer()" class="navBtn" type="button" value="UPDATE WALLET CHARGE AND RATE">
+                    </div>
+                </div>
+                <div class="container col-md-8">
+                    <div id="glacntContainer">
+                        <h3 class="">GL Accounts</h3>
+                        <div class="search d-flex flex-end">
+                            Filter by:
+                            <div class="col-auto">
+                                <input type="text" class="form-control" name="search" id="searchBox" placeholder="Search"
+                                [(ngModel)]="searchText">
+                            </div>
+                        </div>
+                        <table class="table table-bordered text-black text-center">
+                            <thead class="tabledark text-white">
+                                <tr>
+                                    <th scope="col">NAME<i class="fa fa-sort"></i></th>
+                                    <th scope="col">GLNUMBER<i class="fa fa-sort"></i></th>
+                                    <th scope="col">CURRENCY<i class="fa fa-sort"></i></th>
+                                    <th scope="col">BALANCE<i class="fa fa-sort"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                                <!-- <tr class="txn__table" *ngFor="let data of tabledata let i = index" id="sender"
+                                    ng-click="getData($event)"> -->
+                                    <tr class="txn__table" *ngFor="let data of tabledata  | search: searchText | paginate: {itemsPerPage: tableSize, 
+                            currentPage: page,
+                            totalItems: count}; let i = index" id="sender">
+                                    <td class="text-uppercase">{{data.name}}</td>
+                                    <td>{{data.glAccount}}</td>
+                                    <td>{{data.currency}}</td>
+                                    <td>{{data.balance}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div>
+                            <div>
+                                <select (change)="onTableSizeChange($event)">
+                                    <option *ngFor="let size of tableSizes">
+                                        {{size}}
+                                    </option>
+                                </select>
+                            </div>
+                            <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                (pageChange)="onTableDataChange($event)">
+                            </pagination-controls>
+                        </div>
+                    </div>
+
+                    <div id="createglContainer" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">Create new GL Account</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="">GL Name</label>
+                                    <input type="text" class="form-control" name="glname" id="glname" [(ngModel)]="glname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Currency</label>
+                                    <input type="text" class="form-control" name="glcurrency" id="glcurrency" [(ngModel)]="glcurrency">
+                                </div>
+                               
+                                <div>
+                                    <button class="submitBtn float-right" id="buttonPrimary"
+                                        (click)="createNewGL()">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="setChargeContainer" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">Update wallet charge or rate</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- <div class="form-group">
+                                    <label for="">Currency</label>
+                                    <select class="form-control" id="departments">
+                                        <option disabled="" value="" selected=""></option>
+                                    </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="">Currency</label>
+                                    <input type="text" class="form-control" name="ratecurrency" id="ratecurrency" [(ngModel)]="ratecurrency">
+                                </div>                                
+                                <div class="form-group">
+                                    <label for="">Amount</label>
+                                    <input type="number" class="form-control" name="rateamount" id="rateamount" [(ngModel)]="rateamount">
+                                </div>                                
+                                <div>
+                                    <button class="submitBtn float-right" id="buttonPrimary"
+                                        (click)="updateWalletCharge()">Charge</button>
+                                    <button class="submitBtn float-right" id="buttonPrimary"
+                                        (click)="updateWalletRate()">Rate</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <router-outlet></router-outlet>
+</div>

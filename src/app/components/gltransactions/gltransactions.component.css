@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40400%3B500&display=swap%27%29%3B');
+@import "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round";
+
+body {
+    font-family: 'Urbanist', sans-serif;
+    background: #ececec;
+  }
+
+.colSide {
+    flex: 0 0 auto;
+    width: 15%;
+  }
+  
+  .colMain {
+    flex: 0 0 auto;
+    width: 85%;
+  }
+.main-container {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 20px 20px;
+  }
+  
+/* .main-cards-transactions{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 30px 0;
+    padding: 140px;
+    background-color: #fff;
+} */
+
+
+.table__head{
+    color: #FFF;
+    font-weight: 700;
+    background: #53277E;
+    background: -moz-linear-gradient(-45deg, #53277E 0%, #9b4085 100%);
+    background: -webkit-linear-gradient(-45deg, #53277E 0%,#9b4085 100%);
+    background: linear-gradient(135deg, #53277E 0%,#9b4085 100%);
+    white-space: nowrap;
+    }
+    .table-bordered td, .table-bordered th{
+    border: 0px solid #FFF;
+    }
+    .coin {
+    width:8%;
+    margin-left: 5px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+    }
+    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+    
+    .winner__table{
+        white-space: nowrap;
+    }
+    
+    @media screen and (max-width: 500px) {
+    
+        .txn__table{
+        font-size: 12px;
+        }
+        .coin {
+        width:15%;
+        margin-left:2px;
+        }
+    }
+
+    .filterBtns{
+        align-items: center;
+        padding-top: 8px;
+    }
+    .filterBtns button, select{
+        margin-left: 10px;
+        padding: 3px;
+    }
+    .filterBtns h3{
+        font-size: 14px;
+    }
+    .gltxnHeader{
+        justify-content: space-between;
+        margin: auto;
+    }
+    .btn-info{
+        background: #53277E !important;
+        color: #FFF !important;
+    }
+
+    .search{
+        align-items: center;
+    }
+
+    form {
+        margin-left: 10px;
+    }
+    form select{
+        border: none;
+        border-radius: 3px;
+    }
