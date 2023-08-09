@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="row gutterFix">
+    <!-- colSide -->
+    <div class="colSide">
+        <app-sidenav></app-sidenav>
+    </div>
+    <!-- colMain -->
+    <div class="colMain">
+        <!-- content -->
+        <main class="main-container">
+            <div class="row main-cards pt-4">
+                <table class="shadow">
+                    <thead>
+                        <tr>
+                            <th>Approvals Pending</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of datalists">
+                           <td>{{data.username | titlecase}}</td> 
+                           <td><input (click)="expandView(data)" id="expandBtn" class="shadow" type="button" value="Expand"/></td>                          
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <router-outlet></router-outlet>
+</div>

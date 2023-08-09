@@ -67,3 +67,29 @@ body {
   color: #53277E;
   margin-bottom: 20px;
 }
+
+.form-group{
+    padding-bottom: 10px !important;
+}
+
+img{
+    width: 180px;
+    height: auto;
+
+}
+.imgContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#unlockBtn {
+    background-color: #53277E;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+#unlockBtn:hover{
+    background-color: #9b4085;
+}

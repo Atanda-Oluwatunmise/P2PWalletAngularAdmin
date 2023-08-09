@@ -6,6 +6,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { GltransactionsComponent } from './components/gltransactions/gltransactions.component';
 import { GlaccountsComponent } from './components/glaccounts/glaccounts.component';
 import { NewadminsComponent } from './components/newadmins/newadmins.component';
+import { AdminusersComponent } from './components/adminusers/adminusers.component';
+import { UnlockuserComponent } from './components/unlockuser/unlockuser.component';
+import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
+import { KycverificationComponent } from './components/kycverification/kycverification.component';
+import { KycexpandedviewComponent } from './components/kycexpandedview/kycexpandedview.component';
 
 const routes: Routes = [
   { path: 'login', component: AdminloginComponent },
@@ -13,6 +18,11 @@ const routes: Routes = [
   { path: 'gltransactions', component: GltransactionsComponent, canActivate: [AuthGuard]},
   { path: 'glaccounts', component: GlaccountsComponent, canActivate: [AuthGuard]},
   { path: 'newadmins', component: NewadminsComponent, canActivate: [AuthGuard]},
+  { path: 'adminusers', component: AdminusersComponent, canActivate: [AuthGuard]},
+  { path: 'unlockuser', component: UnlockuserComponent, canActivate: [AuthGuard]},
+  { path: 'adminchangepassword', component: AdminChangePasswordComponent},
+  { path: 'kycverification', component: KycverificationComponent, canActivate: [AuthGuard]},
+  { path: 'kycexpandedview', component: KycexpandedviewComponent, canActivate: [AuthGuard]},
   // { path: 'newadmins', component: NewadminsComponent, canActivate: [AuthGuard].},
 
 
@@ -27,5 +37,9 @@ export const routingComponents = [
   AdmindashboardComponent,
   GltransactionsComponent,
   GlaccountsComponent,
-  NewadminsComponent
+  NewadminsComponent,
+  AdminusersComponent,
+  AdminChangePasswordComponent,
+  KycverificationComponent,
+  KycexpandedviewComponent
 ]

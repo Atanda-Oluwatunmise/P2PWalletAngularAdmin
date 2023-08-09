@@ -11,13 +11,13 @@
             <div class="row main-cards pt-2">
                 <div class="col-md-4">
                     <div class="card-body">
-                        <input class="navBtn" type="button" value="CREATE NEW ADMIN">
-                        <input class="navBtn" type="button" value="LOCK USER ACCOUNT">
-                        <input class="navBtn" type="button" value="UNLOCK USER ACCOUNT">
+                        <input (click)="createAdminContainer()" class="navBtn" type="button" value="CREATE NEW ADMIN">
+                        <input (click)="disableAdminContainer()" class="navBtn" type="button" value="DISABLE ADMIN ACCOUNT">
+                        <input (click)="resetAdminContainer()" class="navBtn" type="button" value="RESET ADMIN CREDENTIALS">
                     </div>
                 </div>
                 <div class="container col-md-8">
-                    <div class="createglContainer">
+                    <div id="createglContainer">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="text-center">Create new Admin</h4>
@@ -25,82 +25,62 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="">Email Address</label>
-                                    <input type="text" class="form-control" id="firstname" placeholder="xyz@abc.com">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="xyz@abc.com" [(ngModel)] = "email">
                                 </div>                               
                                 <div>
                                     <button class="submitBtn float-right" id="buttonPrimary"
-                                        onclick="submitForm()">submit</button>
+                                        (click)="createAdmin()">submit</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="glacntContainer" style="display: none;">
-                        <h3 class="">GL Accounts</h3>
-                        <div class="search d-flex flex-end">
-                            Filter by:
-                            <div class="col-auto">
-                                <input type="text" class="form-control" id="">
-                            </div>
-                        </div>
-                        <table class="table table-bordered text-black text-center">
-                            <thead class="tabledark text-white">
-                                <tr>
-                                    <th scope="col">NAME</th>
-                                    <th scope="col">EMAIL</th>
-                                    <th scope="col">PHONE NO</th>
-                                    <th scope="col">BALANCE</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table-body">
-                                <tr class="txn__table" *ngFor="let data of tabledata let i = index" id="sender"
-                                    ng-click="getData($event)">
-                                    <!-- <tr *ngFor="let data of tabledata | orderBy: key: reverse | search: searchText | paginate: {itemsPerPage: tableSize, 
-                            currentPage: page,
-                            totalItems: count}; let i = index" id="sender"> -->
-                                    <td>{{data.senderInfo}}</td>
-                                    <td>{{data.txnAmount}} {{data.currency}}</td>
-                                    <td>
-                                        <p
-                                            [ngClass]="data.transType == 'CREDIT' ? 'badge bg-success': 'badge bg-danger'">
-                                            {{data.transType}}</p>
-                                    </td>
-                                    <td>{{data.receiverInfo}}</td>
-                                    <td>{{data.dateofTransaction | date:'short'}}</td>
-                                    <td [ngClass]="(data.senderInfo === data.senderInfo.toUpperCase() || data.receiverInfo === data.receiverInfo.toUpperCase() || data.transType == 'CREDIT' )== true? 'd-none': 'd-block'"
-                                        id="repeatTxnBtn"><input type="button" value="Repeat Transaction" /></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-            
-
-
-                    <div class="setChargeContainer" style="display: none;">
+                    <div id="resetAdminContainer" style="display: none;">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="text-center">Update wallet charge</h4>
+                                <h4 class="text-center">Reset Admin Credentials</h4>
+                            </div>
+                            <div class="card-body">
+                                <form [formGroup] ="resetForm">
+                                <div class="form-group pb-3">
+                                    <label for="">Email Address</label>
+                                    <input type="text" class="form-control" id="resetadminemail" formControlName="email" placeholder="xyz@abc.com" [(ngModel)] = "resetadminemail">
+                                </div>                               
+                                <div class="form-group pb-3">
+                                    <label for="">Password</label>
+                                    <input type="password" class="form-control" id="password" formControlName="newPassword" placeholder="password" [(ngModel)] = "password">
+                                </div>                               
+                                <div class="form-group">
+                                    <label for="">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirmpassword" formControlName="confirmpassword" placeholder="confirm password" [(ngModel)] = "confirmpassword">
+                                </div>  
+                                </form>                             
+                                <div>
+                                    <button (click)="resetAdmin()" class="submitBtn float-right" id="buttonPrimary">submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="disableglContainer" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">Disable Admin</h4>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="">Currency</label>
-                                    <select class="form-control" id="departments">
-                                        <option disabled="" value="" selected=""></option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Amount</label>
-                                    <input type="number" class="form-control" id="firstname" placeholder="">
-                                </div>                                
+                                    <label for="">Email Address</label>
+                                    <input type="text" class="form-control" id="adminemail" name="adminemail" placeholder="xyz@abc.com" [(ngModel)] = "adminemail">
+                                </div>                               
                                 <div>
                                     <button class="submitBtn float-right" id="buttonPrimary"
-                                        onclick="submitForm()">submit</button>
+                                        (click)="disableAdmin()">disable</button>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </main>

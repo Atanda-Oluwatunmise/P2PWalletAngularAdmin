@@ -39,7 +39,7 @@ export class GltransactionsComponent {
       .subscribe(res => {
         console.log(res)
         this.tabledata = res.data;
-        this.arrays = res.data;
+        this.arrays = res.data
       })
   }
 

@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import ConfirmedValidator from 'src/app/helpers/confirmed.validator';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-adminlogin',
-  templateUrl: './adminlogin.component.html',
-  styleUrls: ['./adminlogin.component.css']
+  selector: 'app-admin-change-password',
+  templateUrl: './admin-change-password.component.html',
+  styleUrls: ['./admin-change-password.component.css']
 })
-export class AdminloginComponent {
+export class AdminChangePasswordComponent {
   type: string = "password";
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash";
@@ -22,8 +23,13 @@ export class AdminloginComponent {
    ngOnInit(): void{
     //initialize your form
     this.loginForm= this.fb.group({
-      username: ['', Validators.required], 
-      password: ['', Validators.required]
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmpassword:['', Validators.required]
+
+    },
+    { 
+      validator:  ConfirmedValidator('password', 'confirmpassword')
     })
    }
   
@@ -33,41 +39,30 @@ export class AdminloginComponent {
     this.isText ? this.type = "text" : this.type = "password";
   }
 
-  onLogin() {
+  onChange() {
     if(this.loginForm.valid){
-      //send object to the database
-      //this.loader.setLoading(true);
-      this.auth.login(this.loginForm.value)
+      this.auth.changeaPassword(this.loginForm.value)
       .subscribe({
-        next:(res) =>{
-          console.log(res.statusMessage);
-          if(res.statusMessage === "Successful")
-          {
-            this.loginForm.reset()
+        next:(res:any) =>{
+          console.log(res);
+           if (res.status == true){
+           alert(res.statusMessage)
+           this.router.navigate(['login']);  
 
-            this.auth.storeToken(res.data.token)
-            this.auth.storeRefreshToken(res.data.refreshToken)
-            this.router.navigate(['dashboard']);  
-          }
-          else if(res.statusMessage !== "Successful" && "Username/Password is Incorrect"){
-            this.router.navigate(['adminchangepassword']);  
-          }
-           //alert(res.statusMessage)
-         
+           }
+          this.loginForm.reset()
+          // this.auth.storeToken(res.data.token)
+          // this.auth.storeRefreshToken(res.data.refreshToken)
           // this.toastr.success('Successful', 'User logged in successfully')
           //this.loader.getLoading();
-     
         },
         error: (err)=> {
           alert(err?.error.statusMessage)
         }
       })
     }else{
-      //throw an error using toaster with required fields
-      console.log("form is not valid");
       //validateForm.validateAllFormFields(this.loginForm);
       alert("your form is invalid")
     }
   }
-
 }

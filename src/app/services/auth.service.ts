@@ -19,6 +19,9 @@ export class AuthService {
   login(loginObj: any){
     return this.http.post<any>(`${this.adminbaseUrl}adminlogin`, loginObj)
   }
+  changeaPassword(passwordObj: any){
+    return this.http.post(`${this.adminbaseUrl}changeadminpassword`, passwordObj);
+  }
 
   logout(){
     localStorage.clear();

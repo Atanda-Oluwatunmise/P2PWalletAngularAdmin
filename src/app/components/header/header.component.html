@@ -2,8 +2,18 @@
         <div class="navContainer">
             <img class="headerImg" src="assets/bankifyimg.png">
             <div class="usersName" class="sideHeader">
-            <span class="material-symbols-outlined rzi notification">notifications</span>
+                <div class="dropdown">
+                    <button type="button" class="icon-button" id="dropdown-icon-button"> 
+                        <span class="material-icons">message</span>
+                        <span class="icon-button__badge"></span>
+                    </button>
+        
+                    <div id="myDropdown" class="dropdown-content">
+                        <!-- <a>Academy</a>
+                        <a>YouTube</a> -->
+                    </div>
+                </div>
             <img src="/assets/user.png" class="profilePicture" alt="Avatar"/>
-            <div class="usersName">Welcome <span></span></div>
+            <div class="usersName">Welcome, <span>{{name}}</span></div>
             </div>
         </div>

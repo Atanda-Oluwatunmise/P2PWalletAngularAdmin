@@ -1,0 +1,27 @@
+<!-- content -->
+<main class="main-container">
+    <div class="row main-cards pt-4">
+        <table id="detailsTable">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>File name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of response">
+                    <td>
+                        <div class="imageHolder">
+                            <img width="60px;" [src]="'data:image/png;base64,' + data.imagePath"/>
+                        </div>   
+                    </td>
+                    <td>{{data.imageName}}</td>
+                    <td><input (click)="Approve(data)" class="shadow btn-success" type="button" value="Approve" /></td>
+                    <td><input (click)="Reject(data)" class="shadow btn-danger" type="button" value="Reject" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

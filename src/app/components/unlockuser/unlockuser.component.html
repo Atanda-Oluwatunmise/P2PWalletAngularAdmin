@@ -1,0 +1,23 @@
+<mat-dialog-content>
+    <div id="modal-content-wrapper">
+        <header id="modal-header">
+            <span (click)="closeModal()" class="material-symbols-outlined rzi">close</span>
+            <h1 id="modal-title">Unlock User</h1>
+        </header>
+        <section id="modal-body">
+            <div class="formbody">
+                <div class="imgContainer">
+                <img src="/assets/undraw_security_re_a2rk.svg" alt="">
+                </div>
+                <form>
+                <label>User's Email</label>
+                <input type="text" id="username" name="username" value="{{email}}" disabled>                               
+                </form>
+            </div> 
+                <button (click)="unlockUser()" class="flex-start sendBtn" type="submit" id="SendButton">Unlock</button>  
+          </section>
+        <!-- <footer id="modal-footer">          
+            <button (click)="closeModal()" mat-raised-button id="modal-cancel-button">Go back</button>
+        </footer> -->
+    </div>
+   </mat-dialog-content> 

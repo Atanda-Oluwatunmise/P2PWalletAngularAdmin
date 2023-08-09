@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <input (click)="glaccount()" class="navBtn" type="button" value="GL ACCOUNTS">
                         <input (click)="newglaccount()" class="navBtn" type="button" value="CREATE NEW GL ACCOUNT">
-                        <input (click)="updateContainer()" class="navBtn" type="button" value="UPDATE WALLET CHARGE AND RATE">
+                        <input (click)="updateContainer()" class="navBtn" type="button" value="UPDATE WALLET CHARGE">
                     </div>
                 </div>
                 <div class="container col-md-8">
@@ -89,7 +89,7 @@
                     <div id="setChargeContainer" style="display: none;">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="text-center">Update wallet charge or rate</h4>
+                                <h4 class="text-center">Update wallet charge</h4>
                             </div>
                             <div class="card-body">
                                 <!-- <div class="form-group">
@@ -108,9 +108,9 @@
                                 </div>                                
                                 <div>
                                     <button class="submitBtn float-right" id="buttonPrimary"
-                                        (click)="updateWalletCharge()">Charge</button>
-                                    <button class="submitBtn float-right" id="buttonPrimary"
-                                        (click)="updateWalletRate()">Rate</button>
+                                        (click)="updateWalletCharge()">Update</button>
+                                    <!-- <button class="submitBtn float-right" id="buttonPrimary"
+                                        (click)="updateWalletRate()">Rate</button> -->
                                 </div>
                                 
                             </div>

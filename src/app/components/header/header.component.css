@@ -23,6 +23,72 @@ body {
   margin-left: 10px;
 }
 
+.material-icons {
+  font-size: 19px !important;
+}
+
+.icon-button , .profilePicture{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #53277E;
+  background: #dddddd;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  cursor: pointer;
+}
+
+.icon-button:active {
+  background: #cccccc;
+}
+
+.icon-button__badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a {
+  color: black;
+  padding: 7px 2px !important;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
 .profilePicture{
   width: 30px;
   height: auto;
@@ -39,9 +105,11 @@ body {
   gap: 0.5rem; 
 }
 .usersName{
-  font-size: 10px;
+  display: flex;
+  font-size: 12px;
   font-weight: 50;
   margin-right: 10px;
+  align-items: center;
 }
 
 .sidenav {
