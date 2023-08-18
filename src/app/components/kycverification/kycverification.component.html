@@ -16,7 +16,13 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="imgBody" style="display: none;">
+                      <div>
+                        <img src="/assets/undraw_page_not_found_re_e9o6.svg" alt="icon">
+                        <h4 class="pt-4">No pending approval!</h4>
+                      </div>
+                    </tbody>
+                    <tbody id="listBody">
                         <tr *ngFor="let data of datalists">
                            <td>{{data.username | titlecase}}</td> 
                            <td><input (click)="expandView(data)" id="expandBtn" class="shadow" type="button" value="Expand"/></td>                          

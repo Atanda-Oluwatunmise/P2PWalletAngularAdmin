@@ -1,0 +1,27 @@
+<div class="chatcontainer">
+	<!-- <div class="no-gutters"> -->
+		<div class="settings-tray">
+			<div class="friend-drawer no-gutters friend-drawer--grey">
+			<img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
+			<div class="text">
+			  <h6>{{chatuserName}}</h6>
+			</div>
+			<span (click)="closeModal()" class="settings-tray--right">
+			  <i class="material-icons">close</i>
+			</span>
+		  </div>
+		</div>
+
+		<div class="chat-panel" id="chatPanel">
+		</div>  
+	
+	<!-- </div> -->
+    <div class="sendInput">
+        <div class="">
+          <div class="chat-box-tray">
+            <input (keydown.enter)="sendMessage()" id="inputBox" type="text" placeholder="Type your message here..." name="message" [(ngModel)]="message">
+            <i (click)="sendMessage()" class="material-icons">send</i>
+          </div>
+        </div>
+      </div>
+  </div>

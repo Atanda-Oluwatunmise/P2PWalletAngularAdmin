@@ -60,3 +60,16 @@ thead, tbody, th, td {
     text-align: right !important;
 
 }
+#imgBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgBody img {
+    width: 250px;
+}
+
+#imgBody h4 {
+    font-weight: 100;
+}

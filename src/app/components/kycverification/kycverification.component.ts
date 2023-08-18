@@ -10,6 +10,7 @@ import { KycexpandedviewComponent } from '../kycexpandedview/kycexpandedview.com
 })
 export class KycverificationComponent {
   public datalists: any;
+  public element: any;
 
   constructor(private api: ApiService, private matdialog: MatDialog){}
 
@@ -17,6 +18,13 @@ export class KycverificationComponent {
     this.api.getPendingUsers()
     .subscribe((res) => {
       this.datalists = res.data;
+      console.log(res);
+      if(res.status != true){
+        this.element = document.getElementById("listBody");
+        this.element.style.display = "none";
+        this.element = document.getElementById("imgBody");
+        this.element.style.display = "";
+      }
     })
   }
 

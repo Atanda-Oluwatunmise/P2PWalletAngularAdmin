@@ -25,6 +25,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
 import { KycverificationComponent } from './components/kycverification/kycverification.component';
 import { KycexpandedviewComponent } from './components/kycexpandedview/kycexpandedview.component';
+import { ChatboxComponent } from './components/chatbox/chatbox.component';
+import { ImagedialogComponent } from './components/imagedialog/imagedialog.component';
 
 
 
@@ -57,7 +59,9 @@ const appRoutes: Routes = [
     UnlockuserComponent,
     AdminChangePasswordComponent,
     KycverificationComponent,
-    KycexpandedviewComponent
+    KycexpandedviewComponent,
+    ChatboxComponent,
+    ImagedialogComponent
     ],
   imports: [
     BrowserModule,

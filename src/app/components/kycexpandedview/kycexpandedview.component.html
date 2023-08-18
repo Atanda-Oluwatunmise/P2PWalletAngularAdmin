@@ -14,7 +14,7 @@
                 <tr *ngFor="let data of response">
                     <td>
                         <div class="imageHolder">
-                            <img width="60px;" [src]="'data:image/png;base64,' + data.imagePath"/>
+                            <img (click)="expandImage(data.imagePath)" width="60px;" [src]="'data:image/png;base64,' + data.imagePath"/>
                         </div>   
                     </td>
                     <td>{{data.imageName}}</td>

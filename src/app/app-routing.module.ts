@@ -11,6 +11,8 @@ import { UnlockuserComponent } from './components/unlockuser/unlockuser.componen
 import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
 import { KycverificationComponent } from './components/kycverification/kycverification.component';
 import { KycexpandedviewComponent } from './components/kycexpandedview/kycexpandedview.component';
+import { ChatboxComponent } from './components/chatbox/chatbox.component';
+import { ImagedialogComponent } from './components/imagedialog/imagedialog.component';
 
 const routes: Routes = [
   { path: 'login', component: AdminloginComponent },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'adminchangepassword', component: AdminChangePasswordComponent},
   { path: 'kycverification', component: KycverificationComponent, canActivate: [AuthGuard]},
   { path: 'kycexpandedview', component: KycexpandedviewComponent, canActivate: [AuthGuard]},
+  { path: 'chatbox', component: ChatboxComponent, canActivate: [AuthGuard]},
+  { path: 'imagecontainer', component: ImagedialogComponent, canActivate: [AuthGuard]},
   // { path: 'newadmins', component: NewadminsComponent, canActivate: [AuthGuard].},
 
 
@@ -41,5 +45,7 @@ export const routingComponents = [
   AdminusersComponent,
   AdminChangePasswordComponent,
   KycverificationComponent,
-  KycexpandedviewComponent
+  KycexpandedviewComponent,
+  ChatboxComponent,
+  ImagedialogComponent
 ]
