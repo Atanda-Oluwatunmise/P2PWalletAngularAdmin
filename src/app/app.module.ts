@@ -61,7 +61,7 @@ const appRoutes: Routes = [
     KycverificationComponent,
     KycexpandedviewComponent,
     ChatboxComponent,
-    ImagedialogComponent
+    ImagedialogComponent,
     ],
   imports: [
     BrowserModule,

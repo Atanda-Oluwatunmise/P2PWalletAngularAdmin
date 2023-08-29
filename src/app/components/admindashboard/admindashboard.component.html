@@ -13,7 +13,6 @@
             </div>
 
             <div class="main-cards">
-
                 <div class="card">
                     <div class="card-inner">
                         <p class="">NO OF USERS</p>
@@ -27,7 +26,7 @@
                         <p class="">NO OF TRANSACTIONS</p>
                         <span class="material-icons-outlined text-orange">history</span>
                     </div>
-                    <span class="font-weight-bold">83</span>
+                    <span class="font-weight-bold">{{txnNo}}</span>
                 </div>
 
                 <div class="card">
@@ -35,7 +34,7 @@
                         <p class="">NO OF ACCOUNTS</p>
                         <span class="material-icons-outlined text-green">account_circle</span>
                     </div>
-                    <span class="font-weight-bold">6</span>
+                    <span class="font-weight-bold">{{acntNo}}</span>
                 </div>
             </div>
 
@@ -43,17 +42,16 @@
 
                 <div class="charts-card">
                     <p class="chart-title">Locked and Unlocked Users</p>
-                    <div id="bar-chart"></div>
+                    <canvas id="bar-chart">{{chart}}</canvas>
                 </div>
 
                 <div class="charts-card">
                     <p class="chart-title">Transactions</p>
-                    <div id="area-chart"></div>
+                    <canvas id="area-chart">{{linechart}}</canvas>
                 </div>
 
             </div>
         </main>
     </div>
-
     <router-outlet></router-outlet>
 </div>

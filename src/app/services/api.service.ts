@@ -7,12 +7,36 @@ import { Router } from '@angular/router';
 })
 export class ApiService {
   public baseUrl:string = "http://localhost:5127/api/";
+  private userbaseUrl: string = "http://localhost:5127/api/User/";
   private adminbaseUrl:string = "http://localhost:5127/api/Admin/";
   private kycprocessbaseUrl: string = "http://localhost:5127/api/KycProcess/";
+  private notificationbaseUrl: string = "http://localhost:5127/api/Notification/";
+  private transactionBaseUrl: string = "http://localhost:5127/api/Transactions/";
+  private chaturl: string = "http://localhost:5127/api/Chat/";
 
   
   constructor(private http: HttpClient, private router: Router) { }
 
+  SendMessage(messageObj: any) {
+    return this.http.post(`${this.chaturl}postadminmessage`, messageObj);
+  }
+
+  LoadMessages(messageObj: any){
+    return this.http.post(`${this.chaturl}getadminmessages`, messageObj);
+  }
+
+  getLockedandUnlockedUsers(){
+    return this.http.get<any>(`${this.userbaseUrl}lockedandunlockedusers`);
+  }
+  getTxnCount(){
+    return this.http.get<any>(`${this.transactionBaseUrl}gettxnsrecord`);
+  }
+  getTxnsNo(){
+    return this.http.get<any>(`${this.notificationbaseUrl}txnscount`);
+  }
+  getAcctNo(){
+    return this.http.get<any>(`${this.notificationbaseUrl}acntscount`);
+  }
   getGLTransactions(){
     return this.http.get<any>(`${this.adminbaseUrl}gltransactionhistory`);
   }
